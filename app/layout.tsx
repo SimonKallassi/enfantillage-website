@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import MobileNav from "@/components/mobile-nav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,14 @@ export const metadata: Metadata = {
   },
 };
 
+const navLinks = [
+  { href: "/shop-by-age", label: "Shop by Age" },
+  { href: "/lego-lebanon", label: "LEGO Lebanon" },
+  { href: "/gift-guide", label: "Gift Guide" },
+  { href: "/about", label: "Our Story" },
+  { href: "/blog", label: "Blog" },
+];
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -50,37 +59,17 @@ export default function RootLayout({
                   Since 1992
                 </span>
               </Link>
+              {/* Desktop nav */}
               <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-                <Link
-                  href="/shop-by-age"
-                  className="text-[#6b5a4e] hover:text-[#C41E3A] transition-colors"
-                >
-                  Shop by Age
-                </Link>
-                <Link
-                  href="/lego-lebanon"
-                  className="text-[#6b5a4e] hover:text-[#C41E3A] transition-colors"
-                >
-                  LEGO Lebanon
-                </Link>
-                <Link
-                  href="/gift-guide"
-                  className="text-[#6b5a4e] hover:text-[#C41E3A] transition-colors"
-                >
-                  Gift Guide
-                </Link>
-                <Link
-                  href="/about"
-                  className="text-[#6b5a4e] hover:text-[#C41E3A] transition-colors"
-                >
-                  Our Story
-                </Link>
-                <Link
-                  href="/blog"
-                  className="text-[#6b5a4e] hover:text-[#C41E3A] transition-colors"
-                >
-                  Blog
-                </Link>
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-[#6b5a4e] hover:text-[#C41E3A] transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
                 <Link
                   href="/contact"
                   className="bg-[#C41E3A] text-white px-4 py-2 rounded-lg hover:bg-[#a01830] transition-colors"
@@ -88,12 +77,8 @@ export default function RootLayout({
                   Contact Us
                 </Link>
               </nav>
-              {/* Mobile menu indicator */}
-              <button className="md:hidden p-2 text-[#C41E3A]" aria-label="Menu">
-                <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path d="M3 12h18M3 6h18M3 18h18" strokeLinecap="round"/>
-                </svg>
-              </button>
+              {/* Mobile nav */}
+              <MobileNav links={navLinks} />
             </div>
           </div>
         </header>
@@ -115,11 +100,13 @@ export default function RootLayout({
               <div>
                 <h4 className="font-semibold text-white mb-3">Quick Links</h4>
                 <ul className="space-y-2 text-sm">
-                  <li><Link href="/shop-by-age" className="hover:text-white transition-colors">Shop by Age</Link></li>
-                  <li><Link href="/lego-lebanon" className="hover:text-white transition-colors">LEGO Lebanon</Link></li>
-                  <li><Link href="/gift-guide" className="hover:text-white transition-colors">Gift Guide</Link></li>
-                  <li><Link href="/about" className="hover:text-white transition-colors">Our Story</Link></li>
-                  <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+                  {navLinks.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} className="hover:text-white transition-colors">
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div>
@@ -153,13 +140,7 @@ export default function RootLayout({
           style={{ backgroundColor: "#25D366" }}
           aria-label="Chat on WhatsApp"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="white"
-            width="28"
-            height="28"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
           </svg>
         </a>

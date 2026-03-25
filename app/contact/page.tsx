@@ -126,7 +126,7 @@ export default function ContactPage() {
               Send Us a Message
             </h2>
             <form
-              action="https://formspree.io/f/placeholder"
+              action="https://wa.me/9613720233"
               method="POST"
               className="space-y-4"
             >
