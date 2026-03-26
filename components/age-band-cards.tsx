@@ -53,7 +53,8 @@ const ageBands = [
 
 export function AgeBandCards() {
   return (
-    <section className="py-24 px-4 max-w-7xl mx-auto">
+    <section className="py-24 px-4" style={{ backgroundColor: '#ffffff' }}>
+      <div className="max-w-7xl mx-auto">
       {/* Section header */}
       <motion.div
         initial={{ opacity: 0, y: 28 }}
@@ -163,6 +164,7 @@ export function AgeBandCards() {
             </Link>
           </motion.div>
         ))}
+      </div>
       </div>
     </section>
   );

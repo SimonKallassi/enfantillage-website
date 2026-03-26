@@ -87,22 +87,22 @@ export default function RootLayout({
         {children}
 
         {/* Footer */}
-        <footer className="bg-[#1a0a00] text-[#e8d5c4] mt-20">
+        <footer className="mt-20" style={{ backgroundColor: '#faf9f7', borderTop: '1px solid #e8d5c4' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div className="md:col-span-2">
-                <h3 className="text-2xl font-bold text-white mb-2">Enfantillage</h3>
-                <p className="text-[#D4A017] text-sm mb-3">Lebanon&apos;s Original Toy Experts Since 1992</p>
-                <p className="text-sm text-[#a08070] leading-relaxed">
+                <h3 className="text-2xl font-bold text-[#C41E3A] mb-2">Enfantillage</h3>
+                <p className="text-[#8B5e00] text-sm font-semibold mb-3">Lebanon&apos;s Original Toy Experts Since 1992</p>
+                <p className="text-sm text-[#6b5a4e] leading-relaxed">
                   Founded by Elie &amp; Georges Diab, Enfantillage has been making Lebanese childhoods magical for over 32 years.
                 </p>
               </div>
               <div>
-                <h4 className="font-semibold text-white mb-3">Quick Links</h4>
-                <ul className="space-y-2 text-sm">
+                <h4 className="font-semibold text-[#1a0a00] mb-3">Quick Links</h4>
+                <ul className="space-y-2 text-sm text-[#6b5a4e]">
                   {navLinks.map((link) => (
                     <li key={link.href}>
-                      <Link href={link.href} className="hover:text-white transition-colors">
+                      <Link href={link.href} className="hover:text-[#C41E3A] transition-colors">
                         {link.label}
                       </Link>
                     </li>
@@ -110,14 +110,14 @@ export default function RootLayout({
                 </ul>
               </div>
               <div>
-                <h4 className="font-semibold text-white mb-3">Contact</h4>
-                <ul className="space-y-2 text-sm">
+                <h4 className="font-semibold text-[#1a0a00] mb-3">Contact</h4>
+                <ul className="space-y-2 text-sm text-[#6b5a4e]">
                   <li>📍 Mazra&apos;at Yashu&apos;, Lebanon</li>
-                  <li>📞 <a href="tel:+9613720233" className="hover:text-white transition-colors">+961 3 720 233</a></li>
+                  <li>📞 <a href="tel:+9613720233" className="hover:text-[#C41E3A] transition-colors">+961 3 720 233</a></li>
                   <li>
                     <a
                       href="https://wa.me/9613720233?text=Hi! I'm looking for a toy recommendation 🎁"
-                      className="text-[#25D366] hover:text-green-300 transition-colors"
+                      className="text-[#16a34a] hover:text-[#15803d] font-medium transition-colors"
                     >
                       💬 WhatsApp Us
                     </a>
@@ -125,7 +125,7 @@ export default function RootLayout({
                 </ul>
               </div>
             </div>
-            <div className="border-t border-[#3a1a0a] mt-8 pt-6 text-center text-xs text-[#6b5a4e]">
+            <div className="border-t border-[#e8d5c4] mt-8 pt-6 text-center text-xs text-[#9e8070]">
               © {new Date().getFullYear()} Enfantillage. All rights reserved. Lebanon&apos;s toy store since 1992.
             </div>
           </div>
